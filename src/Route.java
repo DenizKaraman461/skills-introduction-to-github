@@ -8,8 +8,7 @@ class Route {
         this.city2 = city2;
         this.duration = duration;
     }
-
-@Override
+    @Override
     public String toString() {
         return city1 + " -> " + city2 + "(Time:" + duration + ")";
     }
