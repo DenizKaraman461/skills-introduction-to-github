@@ -1,30 +1,55 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class CountryMap {
-    private List<City> cities;
-    private Map<Integer, Map<Integer, Integer>> routes;
+    private City[] cities;
+    private Route[] routes;
+    private int cityCount;
+    private int routeCount;
 
-    public CountryMap() {
-        cities = new ArrayList<>();
-        routes = new HashMap<>();
+    public CountryMap(int cityCapacity, int routeCapacity) {
+        cities = new City[cityCapacity];
+        routes = new Route[routeCapacity];
+        cityCount = 0;
+        routeCount = 0;
     }
 
     public void addCity(City city) {
-        cities.add(city);
-        routes.put(city.getCityId(), new HashMap<>());
+        if (cityCount < cities.length) {
+            cities[cityCount++] = city;
+        }
     }
 
-    public void addRoute(City city1, City city2, int distance) {
-        routes.get(city1.getCityId()).put(city2.getCityId(), distance);
-        routes.get(city2.getCityId()).put(city1.getCityId(), distance);
+    public void addRoute(Route route) {
+        if (routeCount < routes.length) {
+            routes[routeCount++] = route;
+        }
     }
 
-    public Map<Integer, Integer> getNeighbors(City city) {
-        return routes.get(city.getCityId());
+    public City[] getCities() {
+        return cities;
     }
 
-    public List<City> getCities() {return cities;}
+    public Route[] getRoutes() {
+        return routes;
+    }
+
+    public int getCityCount() {
+        return cityCount;
+    }
+
+    public int getRouteCount() {
+        return routeCount;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Cities: ");
+        for (int i = 0; i < cityCount; i++) {
+            sb.append(cities[i].getName()).append(" ");
+        }
+        sb.append("\nRoutes: ");
+        for (int i = 0; i < routeCount; i++) {
+            sb.append(routes[i].toString()).append("\n");
+        }
+        return sb.toString();
+    }
 }
