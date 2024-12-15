@@ -15,7 +15,6 @@ public class WayFinder {
         int startIndex = -1;
         int endIndex = -1;
 
-        // Başlangıç ve bitiş şehirlerinin indekslerini bulma
         for (int i = 0; i < cityCount; i++) {
             if (cities[i].getName().equals(startCity.getName())) {
                 startIndex = i;
@@ -30,27 +29,25 @@ public class WayFinder {
             return new City[0];
         }
 
-        // Ziyaret edilen şehirler ve mesafeler dizileri
         boolean[] visited = new boolean[cityCount];
         int[] distances = new int[cityCount];
         int[] previous = new int[cityCount];
 
-        // Tüm mesafeleri başlangıçta sonsuz yapıyoruz
         Arrays.fill(distances, Integer.MAX_VALUE);
         Arrays.fill(previous, -1);
-        distances[startIndex] = 0; // Başlangıç şehrinin mesafesi 0
+        distances[startIndex] = 0;
 
         for (int i = 0; i < cityCount; i++) {
-            // Henüz ziyaret edilmemiş en kısa mesafeli şehri bul
+
             int currentCityIndex = findMinimumDistanceCity(distances, visited);
 
             if (currentCityIndex == -1) {
-                break; // Erişilemeyen şehir kalmışsa çık
+                break;
             }
 
-            visited[currentCityIndex] = true; // Şehri ziyaret edilmiş olarak işaretle
+            visited[currentCityIndex] = true;
 
-            // Komşu şehirlerin mesafelerini güncelle
+
             for (Route route : routes) {
                 int neighborIndex = -1;
                 if (route.getCity1().equals(cities[currentCityIndex])) {
@@ -69,7 +66,7 @@ public class WayFinder {
             }
         }
 
-        // En hızlı yolu oluştur
+
         return constructRoute(previous, startIndex, endIndex, cities);
     }
 
@@ -111,7 +108,7 @@ public class WayFinder {
             currentIndex = previous[currentIndex];
         }
 
-        // Rotayı ters çevir
+
         City[] shortestRoute = new City[routeLength];
         for (int i = 0; i < routeLength; i++) {
             shortestRoute[i] = route[routeLength - 1 - i];
