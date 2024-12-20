@@ -20,9 +20,4 @@ public class Route {
     public int getTime() {
         return time;
     }
-
-    @Override
-    public String toString() {
-        return city1.getName() + " -> " + city2.getName() + ": " + time + " min";
-    }
 }
