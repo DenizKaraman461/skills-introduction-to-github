@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class Main {
+public class SE115Maps {
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("Usage: java Main <input_file> <output_file>");
