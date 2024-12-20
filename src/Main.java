@@ -16,7 +16,7 @@ public class Main {
         try (Scanner readInput = new Scanner(Paths.get(inputFile));
              FileWriter outputWriter = new FileWriter(outputFile)) {
 
-            // Şehir bilgilerini al
+
             int cityCount = Integer.parseInt(readInput.nextLine().trim());
             String[] cityNames = readInput.nextLine().trim().split(" ");
 
@@ -25,7 +25,7 @@ public class Main {
                 cities[i] = new City(cityNames[i]);
             }
 
-            // Rota bilgilerini al
+
             int routeCount = Integer.parseInt(readInput.nextLine().trim());
             Route[] routes = new Route[routeCount];
 
@@ -37,7 +37,7 @@ public class Main {
                 routes[i] = new Route(city1, city2, time);
             }
 
-            // Başlangıç ve bitiş şehirlerini al
+
             String[] startAndEnd = readInput.nextLine().trim().split(" ");
             String startCity = startAndEnd[0];
             String endCity = startAndEnd[1];
@@ -52,7 +52,7 @@ public class Main {
 
             City[] fastestRoute = wayFinder.findFastestRoute(start, end);
 
-            // Çıktıyı yazdırma
+
             if (fastestRoute.length > 0) {
                 StringBuilder result = new StringBuilder();
                 result.append("Fastest Way: ");
@@ -67,10 +67,10 @@ public class Main {
                 int totalTime = wayFinder.calculateTotalTime(fastestRoute);
                 result.append("Total Time: ").append(totalTime).append(" min");
 
-                // Konsola yazdır
+
                 System.out.println(result);
 
-                // Output dosyasına yaz
+
                 outputWriter.write(result.toString());
                 System.out.println("Output written to: " + outputFile);
             } else {

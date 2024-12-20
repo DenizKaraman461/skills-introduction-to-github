@@ -20,7 +20,7 @@ class CountryMap {
     public static CountryMap createCountryMap() {
         Scanner scanner = new Scanner(System.in);
 
-        // Şehir bilgilerini al
+
         System.out.print("Enter number of cities: ");
         int cityCount = Integer.parseInt(scanner.nextLine().trim());
 
@@ -32,7 +32,7 @@ class CountryMap {
             cities[i] = new City(cityNames[i]);
         }
 
-        // Rota bilgilerini al
+
         System.out.print("Enter number of routes: ");
         int routeCount = Integer.parseInt(scanner.nextLine().trim());
 
@@ -46,7 +46,7 @@ class CountryMap {
             routes[i] = new Route(city1, city2, time);
         }
 
-        // Başlangıç ve bitiş şehirlerini al
+
         System.out.println("Enter start and end city: ");
         String[] startAndEnd = scanner.nextLine().trim().split(" ");
         String startCity = startAndEnd[0];
