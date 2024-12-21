@@ -10,9 +10,9 @@ public class City {
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        City city = (City) obj;
-        return name.equals(city.name);
+        if (obj == null || !(obj.getClass().equals(City.class))) {
+            return false;
+        }
+        return name.equals(((City)obj).name);
     }
 }

@@ -16,7 +16,6 @@ public class SE115Maps {
         try (Scanner readInput = new Scanner(Paths.get(inputFile));
              FileWriter outputWriter = new FileWriter(outputFile)) {
 
-
             int cityCount = Integer.parseInt(readInput.nextLine().trim());
             String[] cityNames = readInput.nextLine().trim().split(" ");
 
@@ -24,7 +23,6 @@ public class SE115Maps {
             for (int i = 0; i < cityCount; i++) {
                 cities[i] = new City(cityNames[i]);
             }
-
 
             int routeCount = Integer.parseInt(readInput.nextLine().trim());
             Route[] routes = new Route[routeCount];
@@ -36,7 +34,6 @@ public class SE115Maps {
                 int time = Integer.parseInt(routeData[2]);
                 routes[i] = new Route(city1, city2, time);
             }
-
 
             String[] startAndEnd = readInput.nextLine().trim().split(" ");
             String startCity = startAndEnd[0];

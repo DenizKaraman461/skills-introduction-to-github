@@ -120,8 +120,7 @@ public class WayFinder {
         int totalTime = 0;
         for (int i = 0; i < route.length - 1; i++) {
             for (Route r : countryMap.getRoutes()) {
-                if ((r.getCity1().equals(route[i]) && r.getCity2().equals(route[i + 1])) ||
-                        (r.getCity2().equals(route[i]) && r.getCity1().equals(route[i + 1]))) {
+                if ((r.getCity1().equals(route[i]) && r.getCity2().equals(route[i + 1])) || (r.getCity2().equals(route[i]) && r.getCity1().equals(route[i + 1]))) {
                     totalTime += r.getTime();
                     break;
                 }
